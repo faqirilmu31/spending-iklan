@@ -4,10 +4,12 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
-from tensorflow.keras.models import load_model
+from tensorflow import keras
+from keras.layers import Dense
+from keras.models import Sequential, load_model
 
 # Load model dan scaler
-model = load_model(r'C:\Users\User\Documents\spending-iklan\test\best_lstm_model.keras')
+model = load_model('best_lstm_model.h5', compile=False)
 
 
 with open('scaler.pkl', 'rb') as f:
