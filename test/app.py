@@ -46,3 +46,6 @@ if st.button("Prediksi Lead"):
 
     except Exception as e:
         st.error(f"⚠️ Error: {e}")
+
+
+print("App is running...")
