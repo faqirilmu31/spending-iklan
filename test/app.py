@@ -4,9 +4,9 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
-from tensorflow import keras
-from keras.layers import Dense
-from keras.models import Sequential, load_model
+from tensorflow.keras.models import Sequential, load_model
+from tensorflow.keras.layers import Dense
+
 
 # Load model dan scaler
 model = load_model('best_lstm_model.h5', compile=False)
