@@ -11,9 +11,9 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Dense
 
 # --- Load Model dan Scaler ---
-model = load_model('models/best_lstm_model (1).h5', compile=False)
+model = load_model('best_cnn_model1.h5', compile=False)
 
-with open('models/scaler (1).pkl', 'rb') as f:
+with open('scaler_cnn.pkl', 'rb') as f:
     scaler = pickle.load(f)
 
 # --- Streamlit UI ---
