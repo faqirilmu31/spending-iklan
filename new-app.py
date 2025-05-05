@@ -32,7 +32,7 @@ if st.button("Prediksi Lead"):
         spending_list = list(map(float, user_input.strip().split(',')))
 
         if len(spending_list) != 30:
-            st.warning("⚠️ Jumlah input harus tepat 15 angka!")
+            st.warning("⚠️ Jumlah input harus tepat 30 angka!")
         else:
             # Preprocessing
             spending_scaled = scaler.transform(np.array(spending_list).reshape(1, -1))
@@ -44,9 +44,10 @@ if st.button("Prediksi Lead"):
             # Display
             st.success("✅ Prediksi berhasil! Berikut hasilnya:")
             pred_df = pd.DataFrame({
-                f'Lead Lag {i} (Hari ke-{i})': [round(prediction[0][i])] for i in range(15)
+                "Hari ke-": list(range(15)),
+                "Prediksi Lead": [round(prediction[0][i]) for i in range(15)]
             })
-            st.table(pred_df)
+            st.dataframe(pred_df, use_container_width=True)
 
     except Exception as e:
         st.error(f"⚠️ Error: {e}")
