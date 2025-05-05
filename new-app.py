@@ -41,13 +41,21 @@ if st.button("Prediksi Lead"):
             # Predict
             prediction = model.predict(spending_scaled)
 
-            # Display
-            st.success("✅ Prediksi berhasil! Berikut hasilnya:")
-            pred_df = pd.DataFrame({
-                "Hari ke-": list(range(15)),
-                "Prediksi Lead": [round(prediction[0][i]) for i in range(15)]
+            # Buat dataframe prediksi horizontal
+            pred_data = {
+                f"Hari ke-{i}": [round(prediction[0][i])] for i in range(15)
+            }
+            pred_df = pd.DataFrame(pred_data, index=["Prediksi Lead"]).T  # Transpose agar horizontal
+
+            # Styling agar lebih clean
+            styled_df = pred_df.style.set_properties(**{
+                'text-align': 'center',
+                'font-weight': 'bold',
+                'background-color': '#f0f8ff',
             })
-            st.dataframe(pred_df, use_container_width=True)
+
+            st.success("✅ Prediksi berhasil! Berikut hasilnya:")
+            st.dataframe(styled_df, use_container_width=True)
 
     except Exception as e:
         st.error(f"⚠️ Error: {e}")
