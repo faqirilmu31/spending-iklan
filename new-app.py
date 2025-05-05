@@ -18,7 +18,7 @@ with open('scaler_cnn.pkl', 'rb') as f:
 
 # --- Streamlit UI ---
 st.title("🚀 Prediksi Lead 15 Hari dari Spending Iklan")
-st.write("Masukkan 15 data spending terakhir (spending hari ini, kemarin, dst):")
+st.write("Masukkan 15 data spending terakhir (spending hari ini, kemarin, dst) dan 15 data lead terakhir (lead hari ini, kemarin, dst):")
 
 # --- Input Spending User ---
 user_input = st.text_area(
